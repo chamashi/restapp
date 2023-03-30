@@ -4,8 +4,12 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 
 @Entity
+@Table(name =  "customer", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+
 public class Customer {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -73,22 +77,6 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public Customer(Long id, String fullName, double loanBalance, double usedAmount, String installmentPlan,
-			String password, String email) {
-		super();
-		this.id = id;
-		this.fullName = fullName;
-		this.loanBalance = loanBalance;
-		this.usedAmount = usedAmount;
-		this.installmentPlan = installmentPlan;
-		this.password = password;
-		this.email = email;
-	}
-
-	public Customer() {
-		super();
-		
-	}    
-
+	
+	
 }
