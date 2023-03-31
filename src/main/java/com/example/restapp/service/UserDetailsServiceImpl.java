@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.example.restapp.entity.User;
 import com.example.restapp.repository.UserRepository;
+import com.example.restapp.security.MyUserDetails;
 
 
 public class UserDetailsServiceImpl implements UserDetailsService {
