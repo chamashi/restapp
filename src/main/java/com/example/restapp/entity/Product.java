@@ -1,37 +1,53 @@
 package com.example.restapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "products")
 public class Product {
-	private Long id;
-	private String name;
-	private String brand;
-	private String madein;
-	private float price;
-
-	public Product() {
-	}
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
+	private long id;
+	
+	@Column(name = "product_name")
+	private String product_name;
+
+	@Column(name = "brand")
+	private String brand;
+	
+	@Column(name = "country")
+	private String country;
+	
+	@Column(name = "price")
+	private String price;
+	
+	public Product() {
+		
+	}
+
+	public Product(String product_name, String brand, String country, String price) {
+		super();
+		this.product_name = product_name;
+		this.brand = brand;
+		this.country = country;
+		this.price = price;
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
+	public String getProduct_name() {
+		return product_name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setProduct_name(String product_name) {
+		this.product_name = product_name;
 	}
 
 	public String getBrand() {
@@ -42,21 +58,21 @@ public class Product {
 		this.brand = brand;
 	}
 
-	public String getMadein() {
-		return madein;
+	public String getCountry() {
+		return country;
 	}
 
-	public void setMadein(String madein) {
-		this.madein = madein;
+	public void setCountry(String country) {
+		this.country = country;
 	}
 
-	public float getPrice() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setPrice(float price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-
+	
+	
 }
-
