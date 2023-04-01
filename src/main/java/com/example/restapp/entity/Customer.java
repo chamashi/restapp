@@ -22,20 +22,18 @@ public class Customer {
 	@Column(name = "email_id")
 	private String emailId;
 	
-	@Column(name = "password")
-	private String password;
 	
 	public Customer() {
 		
 	}
 
-	public Customer(String fullName, String address, String phone, String emailId, String password) {
+	public Customer(String fullName, String address, String phone, String emailId) {
 		super();
 		this.fullName = fullName;
 		this.address = address;
 		this.phone = phone;
 		this.emailId = emailId;
-		this.password = password;
+		
 	}
 
 	public long getId() {
@@ -78,12 +76,6 @@ public class Customer {
 		this.emailId = emailId;
 	}
 
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
+	
 	
 }
