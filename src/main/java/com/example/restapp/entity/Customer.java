@@ -1,45 +1,89 @@
 package com.example.restapp.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "customers")
 public class Customer {
-	private Long id;
-	private String fullname;
-	private String email;
 	
-
-	public Customer() {
-	}
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
+	private long id;
+	
+	@Column(name = "full_name")
+	private String fullName;
+
+	@Column(name = "address")
+	private String address;
+	
+	@Column(name = "phone")
+	private String phone;
+	
+	@Column(name = "email_id")
+	private String emailId;
+	
+	@Column(name = "password")
+	private String password;
+	
+	public Customer() {
+		
+	}
+
+	public Customer(String fullName, String address, String phone, String emailId, String password) {
+		super();
+		this.fullName = fullName;
+		this.address = address;
+		this.phone = phone;
+		this.emailId = emailId;
+		this.password = password;
+	}
+
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
-	public String getFullname() {
-		return fullname;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getEmailId() {
+		return emailId;
+	}
+
+	public void setEmailId(String emailId) {
+		this.emailId = emailId;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
 }
