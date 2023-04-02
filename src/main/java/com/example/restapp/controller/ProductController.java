@@ -21,30 +21,30 @@ import com.example.restapp.repository.ProductRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/api/v1/product")
+@RequestMapping("/api/v1/products")
 public class ProductController {
 
 	@Autowired
 	private ProductRepository productRepository;
 	
-	@GetMapping("/products")
+	@GetMapping("/")
 	public List<Product> getAllProduct(){
 		return productRepository.findAll();
 	}		
 	
-	@PostMapping("/products")
+	@PostMapping("/")
 	public Product createProduct(@RequestBody Product product) {
 		return productRepository.save(product);
 	}
 
-	@GetMapping("/products/{id}")
+	@GetMapping("/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable Long id) {
 		Product product = productRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Product not exist with id :" + id));
 		return ResponseEntity.ok(product);
 	}
 	
-	@PutMapping("/products/{id}")
+	@PutMapping("/{id}")
 	public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails){
 		Product product= productRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Product not exist with id :" + id));
@@ -58,7 +58,7 @@ public class ProductController {
 		return ResponseEntity.ok(updatedProduct);
 	}
 	
-	@DeleteMapping("/products/{id}")
+	@DeleteMapping("/{id}")
 	public ResponseEntity<Map<String, Boolean>> deleteProduct(@PathVariable Long id){
 		Product product = productRepository.findById(id)
 				.orElseThrow(() -> new ResourceNotFoundException("Product not exist with id :" + id));
