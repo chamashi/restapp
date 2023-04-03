@@ -1,81 +1,50 @@
 package com.example.restapp.entity;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 
 @Entity
-@Table(name = "customers")
 public class Customer {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private long id;
-	
-	@Column(name = "full_name")
-	private String fullName;
 
-	@Column(name = "address")
-	private String address;
-	
-	@Column(name = "phone")
-	private String phone;
-	
-	@Column(name = "email_id")
-	private String emailId;
-	
-	
-	public Customer() {
-		
-	}
-
-	public Customer(String fullName, String address, String phone, String emailId) {
-		super();
-		this.fullName = fullName;
-		this.address = address;
-		this.phone = phone;
-		this.emailId = emailId;
-		
-	}
-
-	public long getId() {
+    @Id
+    @GeneratedValue
+    private Long id;
+    private String name;
+    private String age;
+    private String address;
+    private String email;
+	public Long getId() {
 		return id;
 	}
-
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
-
-	public String getFullName() {
-		return fullName;
+	public String getName() {
+		return name;
 	}
-
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public void setName(String name) {
+		this.name = name;
 	}
-
+	public String getAge() {
+		return age;
+	}
+	public void setAge(String age) {
+		this.age = age;
+	}
 	public String getAddress() {
 		return address;
 	}
-
 	public void setAddress(String address) {
 		this.address = address;
 	}
-
-	public String getPhone() {
-		return phone;
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-	public String getEmailId() {
-		return emailId;
-	}
-
-	public void setEmailId(String emailId) {
-		this.emailId = emailId;
-	}
-
-	
-	
+    
 }
+
