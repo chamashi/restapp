@@ -37,10 +37,15 @@ public class Admin {
 	}
 
 	public Admin(Long id, String email, String password) {
-		super();
 		this.id = id;
 		this.email = email;
 		this.password = password;
 	}
 
+	public Admin() {
+
+	}
+
+	
+	
 }
